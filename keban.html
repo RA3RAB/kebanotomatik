@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Keban Otomatik — Şanzıman Tamir & Bakım Servisi</title>
+  <meta name="description" content="Otomatik ve Manuel Şanzıman Tamiri, Bakımı, Değişimi ve Bilgisayarlı Arıza Tespit Hizmetleri. İstanbul Bahçelievler Servisi." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="keban-style.css" />
+</head>
+<body>
+
+  <!-- Floating particles canvas -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- Cursor ring -->
+  <div id="cursor-ring"></div>
+  <div id="cursor-dot"></div>
+
+  <!-- ========================
+       NAVBAR
+  ========================= -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo" id="logo-link">
+        <div class="logo-icon-wrap">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-svg">
+            <circle cx="20" cy="20" r="18" stroke="#1a2e5a" stroke-width="2.5"/>
+            <circle cx="20" cy="20" r="6" fill="#f5a623"/>
+            <path d="M20 4 L22 10 L18 10 Z" fill="#1a2e5a"/>
+            <path d="M20 36 L22 30 L18 30 Z" fill="#1a2e5a"/>
+            <path d="M4 20 L10 22 L10 18 Z" fill="#1a2e5a"/>
+            <path d="M36 20 L30 22 L30 18 Z" fill="#1a2e5a"/>
+            <path d="M7.5 7.5 L11.5 13 L8 14.5 Z" fill="#f5a623"/>
+            <path d="M32.5 32.5 L28.5 27 L32 25.5 Z" fill="#f5a623"/>
+            <path d="M7.5 32.5 L13 28.5 L14.5 32 Z" fill="#f5a623"/>
+            <path d="M32.5 7.5 L27 11.5 L25.5 8 Z" fill="#f5a623"/>
+          </svg>
+        </div>
+        <div class="logo-text-wrap">
+          <span class="logo-brand"><span class="brand-blue">KEBAN</span><span class="brand-gold">OTOMATİK</span></span>
+          <span class="logo-tagline">Şanzıman Tamir & Bakım Servisi</span>
+        </div>
+      </a>
+
+      <div class="nav-links" id="nav-links">
+        <a href="#hero" class="nav-link active" id="nl-hero">ANA SAYFA</a>
+        <a href="#services" class="nav-link" id="nl-services">HİZMETLERİMİZ</a>
+        <a href="#about" class="nav-link" id="nl-about">HAKKIMIZDA</a>
+        <a href="#gallery" class="nav-link" id="nl-gallery">GALERİ</a>
+        <a href="#contact" class="nav-link" id="nl-contact">İLETİŞİM</a>
+      </div>
+
+      <a href="tel:+905321234567" class="nav-phone" id="nav-phone-btn">
+        <div class="phone-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+        </div>
+        <div class="phone-text">
+          <span class="phone-label">HEMEN ARA</span>
+          <span class="phone-num">+90 532 123 4567</span>
+        </div>
+      </a>
+
+      <button class="hamburger" id="hamburger" aria-label="Menü">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu">
+    <a href="#hero" class="mob-link" id="mob-hero">Ana Sayfa</a>
+    <a href="#services" class="mob-link" id="mob-services">Hizmetlerimiz</a>
+    <a href="#about" class="mob-link" id="mob-about">Hakkımızda</a>
+    <a href="#gallery" class="mob-link" id="mob-gallery">Galeri</a>
+    <a href="#contact" class="mob-link" id="mob-contact">İletişim</a>
+    <a href="tel:+905321234567" class="mob-phone" id="mob-phone">+90 532 123 4567</a>
+  </div>
+
+  <!-- ========================
+       HERO SECTION
+  ========================= -->
+  <section id="hero">
+    <div class="hero-content">
+      <div class="hero-badge reveal-left" id="hero-badge">
+        <span class="badge-dot"></span>
+        İstanbul Bahçelievler · 7/24 Hizmet
+      </div>
+
+      <h1 class="hero-title reveal-left" id="hero-title">
+        ŞANZIMAN ARIZALARINA<br/>
+        <span class="title-highlight">PROFESYONEL</span><br/>
+        VE GARANTİLİ ÇÖZÜMLER
+      </h1>
+
+      <p class="hero-desc reveal-left" id="hero-desc">
+        Otomatik ve Manuel Şanzıman Tamiri, Bakımı, Değişimi ve<br/>
+        Bilgisayarlı Arıza Tespit Hizmetleri. İstanbul Bahçelievler Servisi.
+      </p>
+
+      <div class="hero-btns reveal-left" id="hero-btns">
+        <a href="#services" class="btn-primary-dark" id="btn-services-hero">HİZMETLERİMİZ</a>
+        <a href="#contact" class="btn-gold" id="btn-offer">TEKLİF AL</a>
+      </div>
+
+      <div class="hero-stats reveal-left" id="hero-stats">
+        <div class="hstat">
+          <span class="hstat-num" data-target="15">0</span><span class="hstat-plus">+</span>
+          <span class="hstat-label">Yıl Deneyim</span>
+        </div>
+        <div class="hstat-div"></div>
+        <div class="hstat">
+          <span class="hstat-num" data-target="5000">0</span><span class="hstat-plus">+</span>
+          <span class="hstat-label">Müşteri</span>
+        </div>
+        <div class="hstat-div"></div>
+        <div class="hstat">
+          <span class="hstat-num" data-target="100">0</span><span class="hstat-plus">%</span>
+          <span class="hstat-label">Garanti</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-image-wrap reveal-right" id="hero-image-wrap">
+      <div class="hero-img-bg"></div>
+      <div class="hero-img-card">
+        <div class="mechanic-visual">
+          <div class="mechanic-icon-ring">
+            <svg viewBox="0 0 120 120" class="gear-svg big-gear">
+              <circle cx="60" cy="60" r="55" stroke="#1a2e5a" stroke-width="3" fill="none" stroke-dasharray="8 4"/>
+              <circle cx="60" cy="60" r="35" fill="#1a2e5a" opacity="0.06"/>
+              <circle cx="60" cy="60" r="14" fill="#f5a623"/>
+              <!-- Gear teeth -->
+              <g fill="#1a2e5a">
+                <rect x="56" y="5" width="8" height="16" rx="3"/>
+                <rect x="56" y="99" width="8" height="16" rx="3"/>
+                <rect x="5" y="56" width="16" height="8" rx="3"/>
+                <rect x="99" y="56" width="16" height="8" rx="3"/>
+                <rect x="18" y="18" width="8" height="16" rx="3" transform="rotate(45 22 26)"/>
+                <rect x="94" y="18" width="8" height="16" rx="3" transform="rotate(-45 98 26)"/>
+                <rect x="18" y="86" width="8" height="16" rx="3" transform="rotate(-45 22 94)"/>
+                <rect x="94" y="86" width="8" height="16" rx="3" transform="rotate(45 98 94)"/>
+              </g>
+            </svg>
+
+            <div class="center-icon">
+              <svg viewBox="0 0 48 48" fill="none">
+                <path d="M14 8h20l4 8H10L14 8z" fill="#f5a623"/>
+                <rect x="8" y="16" width="32" height="20" rx="4" fill="#1a2e5a"/>
+                <circle cx="17" cy="26" r="4" fill="#f5a623"/>
+                <circle cx="31" cy="26" r="4" fill="#f5a623"/>
+                <rect x="22" y="22" width="4" height="8" rx="2" fill="#fff" opacity="0.5"/>
+              </svg>
+            </div>
+          </div>
+
+          <div class="floating-badge fb1">
+            <svg viewBox="0 0 20 20" fill="#10b981"><path d="M16.7 3.3L7 13 3.3 9.3l-1.4 1.4L7 15.8l11.1-11.1z"/></svg>
+            Ücretsiz Teşhis
+          </div>
+          <div class="floating-badge fb2">
+            <svg viewBox="0 0 20 20" fill="#f5a623"><path d="M10 1l2.4 7.3H20l-6.2 4.5 2.4 7.3L10 15.5l-6.2 4.6 2.4-7.3L0 8.3h7.6z"/></svg>
+            5 Yıldızlı Servis
+          </div>
+          <div class="floating-badge fb3">
+            <svg viewBox="0 0 20 20" fill="#1a2e5a"><path d="M10 1l1.5 4.6h4.8l-3.9 2.8 1.5 4.6L10 10.2l-3.9 2.8 1.5-4.6L3.7 5.6h4.8z"/></svg>
+            Garantili Onarım
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll-hint">
+      <div class="scroll-bar"></div>
+      <span>Aşağı kaydır</span>
+    </div>
+  </section>
+
+  <!-- ========================
+       SERVICES SECTION
+  ========================= -->
+  <section id="services">
+    <div class="section-wrap">
+      <div class="section-head reveal-up" id="services-head">
+        <div class="section-line"></div>
+        <h2 class="section-title">HİZMETLERİMİZ</h2>
+        <div class="section-line"></div>
+      </div>
+      <p class="section-sub reveal-up" id="services-sub">Uzman ekibimiz ve modern ekipmanlarımızla tüm şanzıman sorunlarınıza çözüm üretiyoruz.</p>
+
+      <div class="services-grid">
+
+        <div class="service-card reveal-up" id="svc-1">
+          <div class="svc-icon-wrap">
+            <svg viewBox="0 0 48 48" fill="none" class="svc-svg">
+              <circle cx="24" cy="24" r="22" stroke="#1a2e5a" stroke-width="2" fill="#f0f4ff"/>
+              <path d="M24 10c7.7 0 14 6.3 14 14s-6.3 14-14 14-14-6.3-14-14 6.3-14 14-14z" stroke="#1a2e5a" stroke-width="1.5" fill="none"/>
+              <circle cx="24" cy="24" r="5" fill="#f5a623"/>
+              <path d="M24 14v4M24 30v4M14 24h4M30 24h4" stroke="#1a2e5a" stroke-width="2" stroke-linecap="round"/>
+              <path d="M17 17l2.8 2.8M28.2 28.2L31 31M17 31l2.8-2.8M28.2 19.8L31 17" stroke="#f5a623" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="svc-title">OTOMATİK ŞANZIMAN</h3>
+          <p class="svc-sub">Otomatik Şanzıman Tamiri</p>
+          <p class="svc-desc">Otomatik ve nur Şanzıman Tamiri, Sökme, Değişimi ve Bağımsız Hizmetleri.</p>
+          <a href="#contact" class="svc-link" id="svc-link-1">Detaylı Bilgi <span>→</span></a>
+        </div>
+
+        <div class="service-card reveal-up" id="svc-2" style="--d:.1s">
+          <div class="svc-icon-wrap">
+            <svg viewBox="0 0 48 48" fill="none" class="svc-svg">
+              <circle cx="24" cy="24" r="22" stroke="#1a2e5a" stroke-width="2" fill="#f0f4ff"/>
+              <rect x="16" y="16" width="16" height="16" rx="8" stroke="#1a2e5a" stroke-width="2" fill="none"/>
+              <circle cx="24" cy="24" r="3" fill="#f5a623"/>
+              <path d="M24 9v6M24 33v6M9 24h6M33 24h6" stroke="#1a2e5a" stroke-width="2" stroke-linecap="round"/>
+              <path d="M13.5 13.5l4.2 4.2M30.3 30.3l4.2 4.2M13.5 34.5l4.2-4.2M30.3 17.7l4.2-4.2" stroke="#f5a623" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="svc-title">MANUEL ŞANZIMAN</h3>
+          <p class="svc-sub">Manuel Şanzıman Tamiri</p>
+          <p class="svc-desc">Manuel Şanzıman Tamiri Manuel Şanzıman Tamiri en ilince manavra Hizmetleri.</p>
+          <a href="#contact" class="svc-link" id="svc-link-2">Detaylı Bilgi <span>→</span></a>
+        </div>
+
+        <div class="service-card reveal-up" id="svc-3" style="--d:.2s">
+          <div class="svc-icon-wrap">
+            <svg viewBox="0 0 48 48" fill="none" class="svc-svg">
+              <circle cx="24" cy="24" r="22" stroke="#1a2e5a" stroke-width="2" fill="#f0f4ff"/>
+              <path d="M18 14c0 0 2 4 2 10s-2 10-2 10M30 14c0 0-2 4-2 10s2 10 2 10" stroke="#1a2e5a" stroke-width="2" stroke-linecap="round"/>
+              <ellipse cx="24" cy="24" rx="6" ry="10" stroke="#f5a623" stroke-width="2" fill="none"/>
+              <circle cx="24" cy="24" r="3" fill="#1a2e5a"/>
+              <path d="M14 20h20M14 28h20" stroke="#1a2e5a" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+            </svg>
+          </div>
+          <h3 class="svc-title">ŞANZIMAN BAKIMI & YAĞI</h3>
+          <p class="svc-sub">Şanzıman Yağ Değişimi & Bakımı</p>
+          <p class="svc-desc">Şanzıman Yağ Değişimi & Bakımı Şanzıman Yağ müşteri şanzıman bakım ve à bakım.</p>
+          <a href="#contact" class="svc-link" id="svc-link-3">Detaylı Bilgi <span>→</span></a>
+        </div>
+
+        <div class="service-card reveal-up" id="svc-4" style="--d:.3s">
+          <div class="svc-icon-wrap">
+            <svg viewBox="0 0 48 48" fill="none" class="svc-svg">
+              <circle cx="24" cy="24" r="22" stroke="#1a2e5a" stroke-width="2" fill="#f0f4ff"/>
+              <rect x="13" y="15" width="22" height="15" rx="3" stroke="#1a2e5a" stroke-width="2" fill="none"/>
+              <path d="M19 34v4M29 34v4M16 38h16" stroke="#1a2e5a" stroke-width="2" stroke-linecap="round"/>
+              <path d="M18 21h3M25 21h5M18 26h8" stroke="#f5a623" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="33" cy="17" r="5" fill="#1a2e5a"/>
+              <path d="M31 17l1.5 1.5L35 15" stroke="#f5a623" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="svc-title">ARIZA TESPİT</h3>
+          <p class="svc-sub">Bilgisayarlı Arıza Tespit</p>
+          <p class="svc-desc">Bilgisayarlı Arıza Tespit, otomatik ucretsel şanzıman arıza tespit şanzımı.</p>
+          <a href="#contact" class="svc-link" id="svc-link-4">Detaylı Bilgi <span>→</span></a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================
+       WHY US + GALLERY
+  ========================= -->
+  <section id="about">
+    <div class="section-wrap about-layout">
+
+      <!-- Why Us -->
+      <div class="why-us reveal-left" id="why-us-block">
+        <div class="why-badge">NEDEN BİZİ SEÇMELİSİNİZ?</div>
+        <h2 class="why-title">Fark Yaratan<br/><span>Kalite & Güven</span></h2>
+        <p class="why-desc">15 yıllık tecrübemiz ve uzman kadromuzla şanzıman sorunlarınıza en hızlı ve güvenilir çözümü sunuyoruz.</p>
+
+        <div class="why-items">
+          <div class="why-item" id="why-1">
+            <div class="why-icon" style="--clr:#1a2e5a">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+            </div>
+            <div class="why-text">
+              <strong>Experience</strong>
+              <span>15 yıllık profesyonel tecrübe</span>
+            </div>
+          </div>
+          <div class="why-item" id="why-2">
+            <div class="why-icon" style="--clr:#f5a623">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+            </div>
+            <div class="why-text">
+              <strong>Quality</strong>
+              <span>En yüksek kalite standartları</span>
+            </div>
+          </div>
+          <div class="why-item" id="why-3">
+            <div class="why-icon" style="--clr:#10b981">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div class="why-text">
+              <strong>Warranty</strong>
+              <span>Tüm işlemlerde 2 yıl garanti</span>
+            </div>
+          </div>
+          <div class="why-item" id="why-4">
+            <div class="why-icon" style="--clr:#6366f1">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 110 20A10 10 0 0112 2zm0 4v4l3 3"/></svg>
+            </div>
+            <div class="why-text">
+              <strong>Fast Service</strong>
+              <span>Hızlı ve güvenilir hizmet</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gallery -->
+      <div class="gallery-wrap reveal-right" id="gallery-block">
+        <div id="gallery" class="gallery-grid">
+          <div class="gallery-item gi-large" id="gi-1">
+            <div class="gi-content">
+              <div class="gi-icon">⚙️</div>
+              <span>Otomatik Şanzıman</span>
+            </div>
+            <div class="gi-overlay"></div>
+          </div>
+          <div class="gallery-item" id="gi-2">
+            <div class="gi-content">
+              <div class="gi-icon">🔧</div>
+              <span>Manuel Tamir</span>
+            </div>
+            <div class="gi-overlay"></div>
+          </div>
+          <div class="gallery-item" id="gi-3">
+            <div class="gi-content">
+              <div class="gi-icon">🛢️</div>
+              <span>Yağ Değişimi</span>
+            </div>
+            <div class="gi-overlay"></div>
+          </div>
+          <div class="gallery-item" id="gi-4">
+            <div class="gi-content">
+              <div class="gi-icon">💻</div>
+              <span>Arıza Tespit</span>
+            </div>
+            <div class="gi-overlay"></div>
+          </div>
+          <div class="gallery-item" id="gi-5">
+            <div class="gi-content">
+              <div class="gi-icon">🏆</div>
+              <span>Ödüllü Servis</span>
+            </div>
+            <div class="gi-overlay"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================
+       CONTACT SECTION
+  ========================= -->
+  <section id="contact">
+    <div class="section-wrap">
+      <div class="section-head reveal-up" id="contact-head">
+        <div class="section-line"></div>
+        <h2 class="section-title">İLETİŞİM</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="contact-layout">
+
+        <!-- Form -->
+        <div class="contact-form-wrap reveal-left" id="contact-form-wrap">
+          <form class="contact-form" id="contact-form" onsubmit="handleSubmit(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <input type="text" id="inp-name" class="form-input" placeholder="İsim" required />
+                <label for="inp-name" class="form-label">İsim</label>
+              </div>
+              <div class="form-group">
+                <input type="tel" id="inp-phone" class="form-input" placeholder="Telefon" required />
+                <label for="inp-phone" class="form-label">Telefon</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="text" id="inp-car" class="form-input" placeholder="Araç Modeli" />
+              <label for="inp-car" class="form-label">Araç Modeli</label>
+            </div>
+            <div class="form-group">
+              <textarea id="inp-msg" class="form-input form-textarea" placeholder="Mesajınız" rows="4"></textarea>
+              <label for="inp-msg" class="form-label">Mesajınız</label>
+            </div>
+            <button type="submit" class="btn-submit" id="form-submit-btn">
+              <span id="btn-text">MESAJ GÖNDER</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="send-icon"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+            <div class="form-success" id="form-success">✅ Mesajınız alındı! En kısa sürede dönüş yapacağız.</div>
+          </form>
+        </div>
+
+        <!-- Info -->
+        <div class="contact-info reveal-right" id="contact-info">
+          <div class="info-item" id="info-addr">
+            <div class="info-icon" style="--clr:#1a2e5a">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <strong>Adres</strong>
+              <span>Merkez Mah. 29 Ekim Cad. No:42,<br/>Bahçelievler / İstanbul</span>
+            </div>
+          </div>
+          <div class="info-item" id="info-phone">
+            <div class="info-icon" style="--clr:#f5a623">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+            </div>
+            <div>
+              <strong>Telefon</strong>
+              <a href="tel:+905321234567">+90 532 123 4567</a>
+            </div>
+          </div>
+          <div class="info-item" id="info-email">
+            <div class="info-icon" style="--clr:#10b981">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <strong>E-posta</strong>
+              <a href="mailto:info@sanzımanpro.com">info@sanzımanpro.com</a>
+            </div>
+          </div>
+          <div class="info-item" id="info-hours">
+            <div class="info-icon" style="--clr:#6366f1">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <strong>Çalışma Saatleri</strong>
+              <span>Pzt–Cmt: 08:30–18:30</span>
+            </div>
+          </div>
+
+          <!-- Map placeholder -->
+          <div class="map-placeholder" id="map-placeholder">
+            <div class="map-pin">📍</div>
+            <div class="map-text">
+              <strong>Haritada Görüntüle</strong>
+              <span>Bahçelievler, İstanbul</span>
+            </div>
+            <a href="https://maps.google.com" target="_blank" class="map-btn" id="map-btn">Yol Tarifi Al →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================
+       FOOTER
+  ========================= -->
+  <footer id="main-footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <span class="brand-blue">KEBAN</span><span class="brand-gold">OTOMATİK</span>
+        </div>
+        <p>Şanzıman Tamir & Bakım Servisi</p>
+        <p class="footer-address">Merkez Mah. 29 Ekim Cad. No:42, Bahçelievler / İstanbul</p>
+      </div>
+      <div class="footer-links-col">
+        <h4>Hizmetlerimiz</h4>
+        <a href="#services">Otomatik Şanzıman</a>
+        <a href="#services">Manuel Şanzıman</a>
+        <a href="#services">Şanzıman Bakımı</a>
+        <a href="#services">Arıza Tespit</a>
+      </div>
+      <div class="footer-links-col">
+        <h4>Sayfalar</h4>
+        <a href="#hero">Ana Sayfa</a>
+        <a href="#about">Hakkımızda</a>
+        <a href="#gallery">Galeri</a>
+        <a href="#contact">İletişim</a>
+      </div>
+      <div class="footer-contact-col">
+        <h4>İletişim</h4>
+        <a href="tel:+905321234567">+90 532 123 4567</a>
+        <a href="mailto:info@sanzımanpro.com">info@sanzımanpro.com</a>
+        <div class="footer-social">
+          <a href="#" class="social-btn" id="fb-btn" aria-label="Facebook">f</a>
+          <a href="#" class="social-btn" id="ig-btn" aria-label="Instagram">in</a>
+          <a href="#" class="social-btn" id="wa-btn" aria-label="Whatsapp">w</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Keban Otomatik. Tüm hakları saklıdır.</p>
+      <p>Şanzıman Tamir & Bakım Servisi · İstanbul</p>
+    </div>
+  </footer>
+
+  <!-- WhatsApp floating button -->
+  <a href="https://wa.me/905321234567" target="_blank" class="whatsapp-fab" id="whatsapp-fab" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.875-1.265A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+  </a>
+
+  <script src="keban-script.js"></script>
+</body>
+</html>
